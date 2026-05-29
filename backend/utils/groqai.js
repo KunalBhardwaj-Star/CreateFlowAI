@@ -1,6 +1,7 @@
 import "dotenv/config";
 
-const getGroqAPIResponse = async(message) => {
+const getGroqAPIResponse = async (message) => {
+
     const options = {
         method: "POST",
         headers: {
@@ -12,13 +13,14 @@ const getGroqAPIResponse = async(message) => {
             messages: [
                 {
                     role: "user",
-                    content: req.body.message
+                    content: message
                 }
             ]
         })
     };
 
     try {
+
         const response = await fetch(
             "https://api.groq.com/openai/v1/chat/completions",
             options
@@ -26,17 +28,14 @@ const getGroqAPIResponse = async(message) => {
 
         const data = await response.json();
 
-        //console.log(data);
-
         return data.choices[0].message.content;
 
     } catch (error) {
+
         console.error(error);
 
-        res.status(500).json({
-            error: "Something went wrong"
-        });
+        return "Something went wrong";
     }
-}
+};
 
 export default getGroqAPIResponse;

@@ -5,8 +5,10 @@ export default function Sidebar(){
         <>
             <section className='sidebar'>
                 <button>
-                    <img src="src/assets/blacklogo.png" alt="gpt logo" />
-                    <i className="fa-solid fa-pen-to-square"></i>
+                    <img src="src/assets/blacklogo.png" alt="gpt logo" className='logo'/>
+                    <span>
+                        <i className="fa-solid fa-pen-to-square"></i>
+                    </span>
                 </button>
 
                 <ul className='history'>
